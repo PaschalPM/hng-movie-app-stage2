@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { PlayArrow } from "@mui/icons-material";
 
 const heroStyle: React.CSSProperties = {
-  backgroundImage: `url('/src/assets/Poster.png')`,
+  backgroundImage: `url('/assets/Poster.png')`,
   backgroundSize: "cover",
   backgroundPosition: "bottom center",
   backgroundRepeat: "no-repeat",
