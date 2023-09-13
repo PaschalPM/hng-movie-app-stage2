@@ -5,6 +5,7 @@ import { PlayArrow } from "@mui/icons-material";
 
 const heroStyle: React.CSSProperties = {
   backgroundImage: `url('/assets/Poster.png')`,
+  backgroundColor: 'rgb(17, 17, 72)',
   backgroundSize: "cover",
   backgroundPosition: "bottom center",
   backgroundRepeat: "no-repeat",
