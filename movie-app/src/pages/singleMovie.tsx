@@ -29,7 +29,7 @@ const SingleMovie = () => {
         direction={{ xs: "column", md: "row" }}
         alignItems="center"
         spacing={{ xs: 1, md: 5 }}
-        sx={{ height: "85vh", margin: "0 20vh" }}
+        sx={{ height: "85vh", margin: "0 20vh", "@media(max-width:600px)": {margin: "0 5vh", textAlign:'center'} }}
       >
         <Box
           sx={{

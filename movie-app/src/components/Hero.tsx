@@ -10,14 +10,12 @@ const heroStyle: React.CSSProperties = {
   backgroundPosition: "bottom center",
   backgroundRepeat: "no-repeat",
   height: "90vh",
-  position: "absolute",
   width: "100%",
-  top: 0,
-  zIndex: -10,
   display: "flex",
   alignItems: "center",
   color: "white",
   padding: "0 20%",
+  marginBottom: 2
 };
 
 const Hero = () => {
