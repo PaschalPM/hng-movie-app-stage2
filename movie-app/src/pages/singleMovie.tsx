@@ -1,20 +1,27 @@
 import { useParams } from "react-router-dom";
-import { useGetMovieDetails } from "../hooks/requests/getMovies";
+import { useGetMovieDetails } from "../hooks/requests/getMovieDetails";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { movieImageBasePath } from "../lib/requests";
-import { UTCString } from "../lib/date";
+import { movieImageBasePath } from "../axios-config";
+import { getISODate } from "../lib/date";
+import ErrorFallBack from "../components/ErrorFallBack";
 
 const SingleMovie = () => {
   const { id } = useParams();
-  const { loading, movieDetails } = useGetMovieDetails(id as string);
+  const { isLoading, data: movieDetails, isError } = useGetMovieDetails(
+    parseInt(id as string)
+  );
+  console.log(movieDetails)
 
-
-  if (loading) {
+  if (isLoading) {
     return <CircularProgress />;
+  }
+
+  if (isError) {
+    <ErrorFallBack/>
   }
   return (
     <Container>
@@ -47,7 +54,7 @@ const SingleMovie = () => {
             {movieDetails.release_date}
           </Typography>
           <Typography data-testid:movie-runtime gutterBottom>
-            {movieDetails.runtime && UTCString(movieDetails.runtime)}
+            {movieDetails.runtime && getISODate(movieDetails.runtime)}
           </Typography>
           <Typography variant="h5">Overview</Typography>
           <Typography variant="body2" data-testid:movie-overview>

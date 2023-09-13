@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Movie from "@mui/icons-material/Movie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,6 +62,13 @@ export default function SearchAppBar({
   withSearchBar,
 }: Props) {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const searchTerm = searchParams.get('q')
+  const updateSearchTerm = (q:string) => {
+    setSearchParams({q})
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -91,7 +98,7 @@ export default function SearchAppBar({
             component="div"
             sx={{
               flexGrow: 1,
-              transformOrigin: 'left',
+              transformOrigin: "left",
               display: {
                 xs: "none",
                 sm: "block",
@@ -111,6 +118,8 @@ export default function SearchAppBar({
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
+                value={searchTerm || ''}
+                onChange={(ev) => updateSearchTerm(ev.target.value)}
               />
             </Search>
           ) : (

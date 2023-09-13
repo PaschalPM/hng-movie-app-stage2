@@ -26,3 +26,13 @@ export const UTCString = (dateString:string) => {
   const date = new Date(dateString)
   return date.toISOString()
 }
+
+export const getISODate = (dateString:string) => {
+  let isoDate = (new Date(dateString)).toISOString()
+  let splitDate = isoDate.split('.')
+  let tail = splitDate[splitDate.length - 1]
+  let lastChar = tail.slice(-1)
+  splitDate.pop()
+
+  return splitDate.join('')+lastChar
+}

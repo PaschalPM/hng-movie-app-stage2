@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
 import { format } from "../lib/date";
-import { movieImageBasePath } from "../lib/requests";
+import { movieImageBasePath } from "../axios-config";
 
 type Props = {
-  id: string;
+  id: number;
   posterPath: string;
   title: string;
   releaseDate: string;
@@ -21,7 +21,7 @@ const MovieCard = ({ id, posterPath, title, releaseDate }: Props) => {
         <CardMedia
           data-testid:movie-poster
           component={"img"}
-          image={movieImageBasePath('w500') + posterPath}
+          image={movieImageBasePath("w500") + posterPath}
           loading="lazy"
         />
       </Link>
