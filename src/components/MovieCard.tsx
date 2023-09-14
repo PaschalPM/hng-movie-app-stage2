@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
-import { format } from "../lib/date";
 import { movieImageBasePath } from "../axios-config";
 
 type Props = {
@@ -42,7 +41,7 @@ const MovieCard = ({ id, posterPath, title, releaseDate }: Props) => {
           </Typography>
         </Link>
         <Typography variant="caption" data-testid:movie-release-date>
-          {format(releaseDate)}
+          {releaseDate}
         </Typography>
       </CardContent>
     </Card>

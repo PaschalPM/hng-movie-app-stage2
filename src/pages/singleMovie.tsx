@@ -57,7 +57,7 @@ const SingleMovie = () => {
             {movieDetails.runtime && getISODate(movieDetails.runtime)}
           </Typography>
           <Typography variant="h5">Overview</Typography>
-          <Typography variant="body2" data-testid:movie-overview>
+          <Typography variant="body2" gutterBottom marginBottom={2} data-testid:movie-overview>
             {movieDetails.overview}
           </Typography>
         </Box>
