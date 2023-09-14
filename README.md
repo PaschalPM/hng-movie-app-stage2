@@ -11,7 +11,7 @@ git clone https://github.com/PaschalPM/hng-movie-app-stage2.git
 ```
 2\. Navigate to the project directory:
 ```bash
-cd hng-movie-app-stage2/movie-app
+cd hng-movie-app-stage2
 ```
 3\. Install the project dependencies using npm:
 ```bash
